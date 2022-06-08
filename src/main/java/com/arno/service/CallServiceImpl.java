@@ -1,7 +1,7 @@
 package com.arno.service;
 
 import com.arno.domain.Call;
-import com.arno.dao.CallR;
+import com.arno.dao.CallDao;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class CallServiceImpl implements CallService {
-    private final CallR callR;
+    private final CallDao callDao;
 
 
     @Override
@@ -29,26 +29,26 @@ public class CallServiceImpl implements CallService {
                 .phone_number(phoneNumber)
                 .build();
 
-        return callR.save(call);
+        return callDao.save(call);
     }
 
     @Override
     public List<Call> getAll() {
-        return callR.findAll();
+        return callDao.findAll();
     }
 
     @Override
     public Call getById(int id) {
-        return callR.findById(id).get();
+        return callDao.findById(id).get();
     }
 
     @Override
     public void deleteById(int id) {
-        callR.deleteById(id);
+        callDao.deleteById(id);
     }
 
     @Override
     public List<Call> getForUser(int userId) {
-        return callR.getAllForUser(userId);
+        return callDao.getAllForUser(userId);
     }
 }

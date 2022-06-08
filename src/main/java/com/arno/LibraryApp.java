@@ -3,7 +3,11 @@ package com.arno;
 import org.h2.tools.Console;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.sql.SQLException;
 
@@ -15,19 +19,13 @@ public class LibraryApp {
 
     public static void main(String[] args) {
 
-        ConfigurableApplicationContext context = SpringApplication.run(LibraryApp.class, args);
+        SpringApplication.run(LibraryApp.class, args);
 
-//        context.getBean(MisDemoService.class).callDemo();
-//        context.getBean(MisDemoService.class).tokenDemo();
-//        context.getBean(MisDemoService.class).userDemo();
-//        context.getBean(MisDemoService.class).organizationDemo();
-//        context.getBean(MisDemoService.class).medicationsDemo();
-
-        try {
-            Console.main(args);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Console.main(args);
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
 
     }
 }

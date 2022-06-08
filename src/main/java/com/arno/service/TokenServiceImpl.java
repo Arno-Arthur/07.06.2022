@@ -17,7 +17,6 @@ public class TokenServiceImpl implements TokenService {
     private final TokenR tokenR;
     private final UserDao userDao;
 
-
     @Override
     public Token insert(String value, String expiration, int userId) {
 
@@ -54,8 +53,6 @@ public class TokenServiceImpl implements TokenService {
 
     @Override
     public Integer getUserIdByToken(String value) {
-        return tokenR.getTokenByValue(value).getId();
+        return tokenR.getTokenByValue(value).getUser();
     }
-
-
 }
